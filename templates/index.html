@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Tracker</title>
+</head>
+<body>
+    <h1>Portfolio Tracker</h1>
+    <form action="/add_asset" method="post">
+        <label for="asset_type">Asset Type:</label>
+        <select name="asset_type" required>
+            <option value="stock">Stock</option>
+            <option value="crypto">Cryptocurrency</option>
+        </select><br>
+        <label for="symbol">Symbol:</label>
+        <input type="text" name="symbol" required><br>
+        <label for="purchase_date">Purchase Date:</label>
+        <input type="date" name="purchase_date" required><br>
+        <label for="purchase_price">Purchase Price:</label>
+        <input type="number" name="purchase_price" step="0.01" required><br>
+        <label for="units">Units:</label>
+        <input type="number" name="units" step="0.01" required><br>
+        <button type="submit">Add Asset</button>
+    </form>
+    <a href="/portfolio">View Portfolio</a>
+</body>
+</html>
