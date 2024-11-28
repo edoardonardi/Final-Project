@@ -1,32 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio Performance</title>
+    <title>Your Portfolio</title>
 </head>
 <body>
-    <h1>Portfolio Performance</h1>
+    <h1>Your Portfolio</h1>
     <table border="1">
         <thead>
             <tr>
                 <th>Symbol</th>
+                <th>Units</th>
+                <th>Purchase Price</th>
+                <th>Current Price</th>
                 <th>Current Value</th>
-                <th>Absolute Change</th>
-                <th>Percentage Change</th>
+                <th>Profit/Loss (%)</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
             {% for asset in details %}
             <tr>
                 <td>{{ asset.symbol }}</td>
-                <td>${{ asset.current_value }}</td>
-                <td>${{ asset.absolute_change }}</td>
+                <td>{{ asset.units }}</td>
+                <td>{{ asset.purchase_price }}</td>
+                <td>{{ asset.current_price }}</td>
+                <td>{{ asset.current_value }}</td>
                 <td>{{ asset.percentage_change }}%</td>
+                <td>
+                    <form action="/delete_asset/{{ asset.id }}" method="post">
+                        <button type="submit">Remove</button>
+                    </form>
+                </td>
             </tr>
             {% endfor %}
         </tbody>
     </table>
-    <h2>Total Portfolio Value: ${{ total_value }}</h2>
+    <p>Total Portfolio Value: {{ total_value }}</p>
+    <a href="/">Add More Assets</a>
 </body>
 </html>
