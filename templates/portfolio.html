@@ -1,51 +1,51 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <script src="/static/js/scripts.js" defer></script>
     <title>Your Portfolio</title>
-    <style>
-        .positive { color: green; }
-        .negative { color: red; }
-    </style>
 </head>
 <body>
-    <h1>Your Portfolio</h1>
-    <table border="1">
-        <thead>
-            <tr>
-                <th>Symbol</th>
-                <th>Type</th>
-                <th>Units</th>
-                <th>Purchase Price</th>
-                <th>Current Price</th>
-                <th>Current Value</th>
-                <th>Profit/Loss (%)</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for asset in details %}
-            <tr>
-                <td>{{ asset.symbol }}</td>
-                <td>{{ asset.asset_type }}</td>
-                <td>{{ asset.units }}</td>
-                <td>{{ asset.purchase_price }}</td>
-                <td>{{ asset.current_price }}</td>
-                <td>{{ asset.current_value }}</td>
-                <td>
-                    <span class="{{ 'positive' if asset.is_positive else 'negative' }}">
-                        {{ asset.percentage_change }}%
-                    </span>
-                </td>
-                <td>
-                    <form action="/delete_asset/{{ asset.id }}" method="post">
-                        <button type="submit">Remove</button>
-                    </form>
-                </td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-    <p>Total Portfolio Value: {{ total_value }}</p>
-    <a href="/">Add Another Asset</a>
+    <div class="container">
+        <h1>Your Portfolio</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Symbol</th>
+                    <th>Type</th>
+                    <th>Units</th>
+                    <th>Purchase Price</th>
+                    <th>Current Price</th>
+                    <th>Current Value</th>
+                    <th>Profit/Loss (%)</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for asset in details %}
+                <tr>
+                    <td>{{ asset.symbol }}</td>
+                    <td>{{ asset.asset_type }}</td>
+                    <td>{{ asset.units }}</td>
+                    <td>${{ "%.2f" | format(asset.purchase_price) }}</td>
+                    <td>${{ "%.2f" | format(asset.current_price) }}</td>
+                    <td>${{ "%.2f" | format(asset.current_value) }}</td>
+                    <td class="{{ 'positive' if asset.is_positive else 'negative' }}">
+                        {{ "%.2f" | format(asset.percentage_change) }}%
+                    </td>
+                    <td>
+                        <form action="/delete_asset/{{ asset.id }}" method="post">
+                            <button type="submit">Remove</button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <p>Total Portfolio Value: ${{ "%.2f" | format(total_value) }}</p>
+        <a href="/">Add Another Asset</a>
+    </div>
 </body>
 </html>
