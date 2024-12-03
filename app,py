@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request, jsonify, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 import requests
 from datetime import datetime
@@ -64,7 +64,7 @@ def get_current_stock_price(symbol):
 
 @app.route('/')
 def index():
-    """Homepage with input form."""
+    """Homepage with input form and disclaimer."""
     return render_template('index.html')
 
 
@@ -106,7 +106,7 @@ def add_asset():
     db.session.add(asset)
     db.session.commit()
 
-    return jsonify({"message": "Asset added successfully!", "symbol": symbol, "purchase_price": purchase_price})
+    return redirect(url_for('view_portfolio'))
 
 
 @app.route('/portfolio', methods=['GET'])
@@ -137,7 +137,8 @@ def view_portfolio():
                 "current_price": current_price,
                 "current_value": current_value,
                 "absolute_change": absolute_change,
-                "percentage_change": percentage_change
+                "percentage_change": percentage_change,
+                "is_positive": percentage_change > 0  # For color styling
             })
 
     return render_template('portfolio.html', details=details, total_value=total_value)
@@ -150,7 +151,7 @@ def delete_asset(asset_id):
     if asset:
         db.session.delete(asset)
         db.session.commit()
-        return jsonify({"message": "Asset deleted successfully!"})
+        return redirect(url_for('view_portfolio'))
     return jsonify({"error": "Asset not found."}), 404
 
 
