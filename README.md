@@ -27,13 +27,13 @@ If the link above is not working due to API request limits, please
    - Use the interface to add assets to your portfolio and view performance metrics.
 
 ### Portfolio example
-This is an example of what you see when you go on our website, where you manually input stock information and add to your portfolio.
+**This is an example of what you see when you go on our website, where you manually input stock information and add to your portfolio.**
 ![Portfolio Summary](https://github.com/edoardonardi/final_project/blob/main/Screenshot%20(23).png?raw=true)
 
 
 
 
-Once added to portfolio, you can view your entire portfolio and track it directly in the website.
+**Once added to portfolio, you can view your entire portfolio and track it directly in the website.**
 
 
 
