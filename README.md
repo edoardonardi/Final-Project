@@ -29,7 +29,14 @@ If the link above is not working due to API request limits, please
 ### Portfolio example
 This is an example of what you see when you go on our website, where you manually input stock information and add to your portfolio.
 ![Portfolio Summary](https://github.com/edoardonardi/final_project/blob/main/Screenshot%20(23).png?raw=true)
+
+
+
+
 Once added to portfolio, you can view your entire portfolio and track it directly in the website.
+
+
+
 ![Portfolio Tracker Homepage](https://github.com/edoardonardi/final_project/blob/main/Screenshot%20(22).png?raw=true)
 
 ### External Assistance
