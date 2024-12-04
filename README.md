@@ -26,11 +26,19 @@ If the link above is not working due to API request limits, please
    - Open your web browser and navigate to `http://127.0.0.1:5000/`.
    - Use the interface to add assets to your portfolio and view performance metrics.
 
+### Portfolio example
+This is an example of what you see when you go on our website, where you manually input stock information and add to your portfolio.
+![Portfolio Summary](https://github.com/edoardonardi/final_project/blob/main/Screenshot%20(23).png?raw=true)
+Once added to portfolio, you can view your entire portfolio and track it directly in the website.
+![Portfolio Tracker Homepage](https://github.com/edoardonardi/final_project/blob/main/Screenshot%20(22).png?raw=true)
+
 ### External Assistance
 After manually creating our API Key and beginning to build our code, we began using GENAI to structure our code and begin to set up our app which would eventually run on our website. We used ChatGPT to add features such as structuring our portfolio, including stating Current Price, Purchase Price, Current Value, and percent change for each stock added to the porfolio. We did struggle with the API key for CoinGecko, which was part of our initial goal of having Stocks and Cryptocurrencies both present in our website. We also asked chatGPT to assist with structuring our frontend HTML code, as well as going back and forth between ChatGPT and Render for our website creation, in which we added applications to our requirements.txt file and were able to run commands for Render.
 
+### Other ISSSUES
+Since we have a limit for 25 daily uses for our API Key, there may be issues when trying to get stock data if there are too many uses daily in the website.
 
-![Portfolio Tracker Homepage](https://github.com/edoardonardi/final_project/blob/main/Screenshot%20(22).png?raw=true)
-![Portfolio Summary](https://github.com/edoardonardi/final_project/blob/main/Screenshot%20(23).png?raw=true)
+
+
 
 
